@@ -1,9 +1,10 @@
 import React, { useEffect } from "react"
 import { gsap } from "gsap"
 
-export default function Chemex() {
+export default function Chemex(props) {
   const introTL = React.useRef(gsap.timeline())
   const [played, setPlayed] = React.useState(false)
+  const { setContact } = props
 
   const pourCoffee1 = () => {
     const tl = gsap.timeline()
@@ -229,11 +230,6 @@ export default function Chemex() {
   }
 
   useEffect(() => {
-    gsap.set("#envelope-image", {
-      transformOrigin: "50%, 50%",
-      y: 75,
-    })
-
     gsap.set("#Chemex", {
       transformOrigin: "50% 50%",
     })
@@ -258,11 +254,6 @@ export default function Chemex() {
       transformOrigin: "100%, 100%",
     })
 
-    gsap.set("#contact-form", {
-      scaleX: 0,
-      scaleY: 0,
-      opacity: 0,
-    })
     //into timeline setup
 
     introTL.current.from(".interact", {
@@ -393,6 +384,7 @@ export default function Chemex() {
             if (!played) {
               setPlayed(true)
               triggerContactForm()
+              setContact(true)
             }
           }}
         >

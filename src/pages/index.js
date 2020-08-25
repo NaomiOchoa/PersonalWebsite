@@ -1,9 +1,13 @@
 import React from "react"
 import Chemex from "../components/coffeeContact"
+import Contact from "../components/contactPopup"
 
 export default function Home() {
+  const [contact, setContact] = React.useState(false)
+
   return (
-    <div>
+    <div id="container">
+      <Contact contact={contact} />
       <svg
         xmlns="http://www.w3.org/2000/svg"
         // xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -2357,7 +2361,7 @@ export default function Home() {
             </g>
           </g>
         </g>
-        <Chemex />
+        <Chemex setContact={setContact} />
         <g id="Scribby">
           <rect
             x="1178.5"
