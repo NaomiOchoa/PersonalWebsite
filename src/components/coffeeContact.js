@@ -2,7 +2,6 @@ import React, { useEffect } from "react"
 import { gsap } from "gsap"
 
 export default function Chemex(props) {
-  const introTL = React.useRef(gsap.timeline())
   const [played, setPlayed] = React.useState(false)
   const { setContact } = props
 
@@ -252,15 +251,6 @@ export default function Chemex(props) {
       scaleX: 0,
       scaleY: 0.2,
       transformOrigin: "100%, 100%",
-    })
-
-    //into timeline setup
-
-    introTL.current.from(".interact", {
-      duration: 1.5,
-      y: -500,
-      ease: "power1.inOut",
-      stagger: 0.1,
     })
   }, [])
 

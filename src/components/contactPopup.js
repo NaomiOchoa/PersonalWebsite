@@ -56,7 +56,6 @@ export default function ContactPopup(props) {
   }
 
   return (
-    // <div id="contact-form-container">
     <div id="contact-form">
       <h1>Want to grab (virtual) coffee?</h1>
       <h3>Send me a note!</h3>
@@ -95,6 +94,5 @@ export default function ContactPopup(props) {
         </svg>
       </a>
     </div>
-    // </div>
   )
 }
