@@ -17,6 +17,8 @@
   "dependencies": {
     "@svgr/core": "^5.4.0",
     "gatsby": "^2.24.26",
+    "gatsby-plugin-manifest": "^2.4.24",
+    "gatsby-plugin-smoothscroll": "^1.2.0",
     "gsap": "^3.5.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"

@@ -1,9 +1,9 @@
 import React, { useEffect } from "react"
 import { gsap } from "gsap"
 
-export default function Chemex() {
-  const introTL = React.useRef(gsap.timeline())
+export default function Chemex(props) {
   const [played, setPlayed] = React.useState(false)
+  const { setContact } = props
 
   const pourCoffee1 = () => {
     const tl = gsap.timeline()
@@ -229,11 +229,6 @@ export default function Chemex() {
   }
 
   useEffect(() => {
-    gsap.set("#envelope-image", {
-      transformOrigin: "50%, 50%",
-      y: 75,
-    })
-
     gsap.set("#Chemex", {
       transformOrigin: "50% 50%",
     })
@@ -256,20 +251,6 @@ export default function Chemex() {
       scaleX: 0,
       scaleY: 0.2,
       transformOrigin: "100%, 100%",
-    })
-
-    gsap.set("#contact-form", {
-      scaleX: 0,
-      scaleY: 0,
-      opacity: 0,
-    })
-    //into timeline setup
-
-    introTL.current.from(".interact", {
-      duration: 1.5,
-      y: -500,
-      ease: "power1.inOut",
-      stagger: 0.1,
     })
   }, [])
 
@@ -313,7 +294,7 @@ export default function Chemex() {
             height="20"
             fill="#603813"
           />
-          <g clip-path="url(#clip-path)">
+          <g clipPath="url(#clip-path)">
             <rect
               id="InnerCoffee"
               x="844.24"
@@ -330,24 +311,24 @@ export default function Chemex() {
             transform="translate(-41 -35.19)"
             fill="none"
             stroke="#000"
-            stroke-miterlimit="10"
-            stroke-width="0.5"
+            strokeMiterlimit="10"
+            strokeWidth="0.5"
           />
           <path
             d="M939.47,68.71H913.71l-14.87-31c-.28-1.09.22-2.27,1-2.27h53.58c.74,0,1.24,1.18,1,2.27Z"
             transform="translate(-41 -35.19)"
             fill="none"
             stroke="#000"
-            stroke-miterlimit="10"
-            stroke-width="0.5"
+            strokeMiterlimit="10"
+            strokeWidth="0.5"
           />
           <path
             d="M945.64,85.66H907.1a1.77,1.77,0,0,1-1.77-1.77L912.1,71.8V70.7l-6.77-12.2a1.77,1.77,0,0,1,1.77-1.77h38.54a1.77,1.77,0,0,1,1.77,1.77l-6.78,12.2v1l6.78,12.14A1.77,1.77,0,0,1,945.64,85.66Z"
             transform="translate(-41 -35.19)"
             fill="#a67c52"
             stroke="#000"
-            stroke-miterlimit="10"
-            stroke-width="0.5"
+            strokeMiterlimit="10"
+            strokeWidth="0.5"
           />
         </g>
       </g>
@@ -359,16 +340,16 @@ export default function Chemex() {
               transform="translate(-41 -35.19)"
               fill="#e1e1e1"
               stroke="#000"
-              stroke-miterlimit="10"
-              stroke-width="0.25"
+              strokeMiterlimit="10"
+              strokeWidth="0.25"
             />
             <path
               d="M740.45,416h-4a13,13,0,0,1-13-13l-1-16a1,1,0,0,1,1-1h30a1,1,0,0,1,1,1l-1,16A13,13,0,0,1,740.45,416Z"
               transform="translate(-41 -35.19)"
               fill="#f9f9f9"
               stroke="#000"
-              stroke-miterlimit="10"
-              stroke-width="0.25"
+              strokeMiterlimit="10"
+              strokeWidth="0.25"
             />
           </g>
           <path
@@ -376,8 +357,8 @@ export default function Chemex() {
             transform="translate(-41 -35.19)"
             fill="#e1e1e1"
             stroke="#000"
-            stroke-miterlimit="10"
-            stroke-width="0.25"
+            strokeMiterlimit="10"
+            strokeWidth="0.25"
           />
         </g>
         <g
@@ -393,6 +374,7 @@ export default function Chemex() {
             if (!played) {
               setPlayed(true)
               triggerContactForm()
+              setContact(true)
             }
           }}
         >
@@ -402,16 +384,16 @@ export default function Chemex() {
               transform="translate(-41 -35.19)"
               fill="#e1e1e1"
               stroke="#000"
-              stroke-miterlimit="10"
-              stroke-width="0.25"
+              strokeMiterlimit="10"
+              strokeWidth="0.25"
             />
             <path
               d="M927.45,209h-4a13,13,0,0,1-13-13l-1-16a1,1,0,0,1,1-1h30a1,1,0,0,1,1,1l-1,16A13,13,0,0,1,927.45,209Z"
               transform="translate(-41 -35.19)"
               fill="#f9f9f9"
               stroke="#000"
-              stroke-miterlimit="10"
-              stroke-width="0.25"
+              strokeMiterlimit="10"
+              strokeWidth="0.25"
             />
           </g>
           <path
@@ -419,8 +401,8 @@ export default function Chemex() {
             transform="translate(-41 -35.19)"
             fill="#e1e1e1"
             stroke="#000"
-            stroke-miterlimit="10"
-            stroke-width="0.25"
+            strokeMiterlimit="10"
+            strokeWidth="0.25"
           />
         </g>
       </g>
