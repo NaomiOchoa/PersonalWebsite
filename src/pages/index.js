@@ -5,6 +5,7 @@ import Card from "../components/fridgeCards"
 import About from "../components/aboutPopup"
 import { gsap } from "gsap"
 import Header from "../components/header"
+import Projects from "../components/projectsSection"
 
 export default function Home() {
   const [contact, setContact] = React.useState(false)
@@ -25,7 +26,6 @@ export default function Home() {
       <Header />
       <div className="main">
         <Contact contact={contact} />
-        <About about={about} setAbout={setAbout} />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           // xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -2443,6 +2443,8 @@ export default function Home() {
             </g>
           </g>
         </svg>
+        <About />
+        <Projects />
       </div>
     </div>
   )

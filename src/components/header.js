@@ -425,7 +425,7 @@ export default function Header(props) {
             y="680.95"
             width="178"
             height="87"
-            fill="#38383a"
+            fill="#006d77"
             stroke="#fff"
             stroke-linecap="round"
             stroke-miterlimit="10"
