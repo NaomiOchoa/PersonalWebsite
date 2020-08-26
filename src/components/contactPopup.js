@@ -62,7 +62,7 @@ export default function ContactPopup(props) {
       <a href="mailto:naomi.m.ochoa@gmail.com">
         <svg
           id="envelope"
-          class="clickable"
+          className="clickable"
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 206 306"

@@ -1,8 +1,9 @@
 import React, { useEffect } from "react"
 import { gsap } from "gsap"
+import scrollTo from "gatsby-plugin-smoothscroll"
 
 export default function Header(props) {
-  const [position, setPosition] = React.useState("full")
+  // const [position, setPosition] = React.useState("full")
   const introTL = React.useRef(gsap.timeline())
   const N = React.useRef()
   const A = React.useRef()
@@ -29,7 +30,6 @@ export default function Header(props) {
       A2.current,
     ]
     letters.forEach(x => {
-      console.log(x)
       const length = x.getTotalLength()
       gsap.set(`.${x.id}`, {
         strokeDasharray: length,
@@ -189,7 +189,7 @@ export default function Header(props) {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1366 768"
       >
-        <g className="name-logo">
+        <g className="name-logo clickable" onClick={() => scrollTo("#top")}>
           <path
             ref={N}
             id="N"
@@ -198,8 +198,8 @@ export default function Header(props) {
             transform="translate(0.37 -0.05)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="4"
+            strokeMiterlimit="10"
+            strokeWidth="4"
           />
           <path
             ref={A}
@@ -209,8 +209,8 @@ export default function Header(props) {
             transform="translate(0.37 -0.05)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="4"
+            strokeMiterlimit="10"
+            strokeWidth="4"
           />
           <path
             ref={O}
@@ -220,8 +220,8 @@ export default function Header(props) {
             transform="translate(0.37 -0.05)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="4"
+            strokeMiterlimit="10"
+            strokeWidth="4"
           />
           <path
             ref={M}
@@ -231,8 +231,8 @@ export default function Header(props) {
             transform="translate(0.37 -0.05)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="4"
+            strokeMiterlimit="10"
+            strokeWidth="4"
           />
           <path
             ref={I}
@@ -242,8 +242,8 @@ export default function Header(props) {
             transform="translate(0.37 -0.05)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="4"
+            strokeMiterlimit="10"
+            strokeWidth="4"
           />
           <path
             ref={O2}
@@ -253,8 +253,8 @@ export default function Header(props) {
             transform="translate(0.37 -0.05)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="4"
+            strokeMiterlimit="10"
+            strokeWidth="4"
           />
           <path
             ref={C}
@@ -264,8 +264,8 @@ export default function Header(props) {
             transform="translate(0.37 -0.05)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="4"
+            strokeMiterlimit="10"
+            strokeWidth="4"
           />
           <path
             ref={H}
@@ -275,8 +275,8 @@ export default function Header(props) {
             transform="translate(0.37 -0.05)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="4"
+            strokeMiterlimit="10"
+            strokeWidth="4"
           />
           <path
             ref={O3}
@@ -286,8 +286,8 @@ export default function Header(props) {
             transform="translate(0.37 -0.05)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="4"
+            strokeMiterlimit="10"
+            strokeWidth="4"
           />
           <path
             ref={A2}
@@ -297,11 +297,10 @@ export default function Header(props) {
             transform="translate(0.37 -0.05)"
             fill="none"
             stroke="#fff"
-            stroke-miterlimit="10"
-            stroke-width="4"
+            strokeMiterlimit="10"
+            strokeWidth="4"
           />
         </g>
-
         <g className="title-info">
           <path
             d="M474.22,498.66a14.1,14.1,0,0,1-5.26-2.9,2.21,2.21,0,0,1-.72-1.68,1.88,1.88,0,0,1,.39-1.18,1.13,1.13,0,0,1,.91-.5,2.28,2.28,0,0,1,1.34.53,16.21,16.21,0,0,0,10.18,3.45,10.8,10.8,0,0,0,6.33-1.58,5.23,5.23,0,0,0,2.21-4.51,3.65,3.65,0,0,0-1.05-2.72,7.74,7.74,0,0,0-2.79-1.65,41.09,41.09,0,0,0-4.65-1.3,45.74,45.74,0,0,1-6.46-1.92,10,10,0,0,1-4.08-2.88,7.39,7.39,0,0,1-1.56-4.89,8.73,8.73,0,0,1,1.56-5.12,10.12,10.12,0,0,1,4.37-3.45,15.83,15.83,0,0,1,6.41-1.23,18.56,18.56,0,0,1,6.26,1,13.1,13.1,0,0,1,4.87,2.95,2.34,2.34,0,0,1,.77,1.68,1.89,1.89,0,0,1-.38,1.17,1.13,1.13,0,0,1-.92.51,3,3,0,0,1-1.39-.53,16.22,16.22,0,0,0-4.37-2.69,13.65,13.65,0,0,0-4.84-.77,10.18,10.18,0,0,0-6.2,1.66,5.45,5.45,0,0,0-2.2,4.63,4.25,4.25,0,0,0,1.94,3.82,19.61,19.61,0,0,0,6,2.23c2.91.7,5.19,1.35,6.86,1.94a10.3,10.3,0,0,1,4.15,2.67,6.66,6.66,0,0,1,1.66,4.75,8.29,8.29,0,0,1-1.56,5,10.18,10.18,0,0,1-4.39,3.36,16.49,16.49,0,0,1-6.48,1.2A21.93,21.93,0,0,1,474.22,498.66Z"
@@ -392,8 +391,8 @@ export default function Header(props) {
           height="503.43"
           fill="none"
           stroke="#83c5be"
-          stroke-miterlimit="10"
-          stroke-width="4"
+          strokeMiterlimit="10"
+          strokeWidth="4"
         />
         <rect
           className="deco"
@@ -403,8 +402,8 @@ export default function Header(props) {
           height="443.79"
           fill="none"
           stroke="#ffddd2"
-          stroke-miterlimit="10"
-          stroke-width="4"
+          strokeMiterlimit="10"
+          strokeWidth="4"
         />
 
         <g
@@ -427,17 +426,17 @@ export default function Header(props) {
             height="87"
             fill="#006d77"
             stroke="#fff"
-            stroke-linecap="round"
-            stroke-miterlimit="10"
-            stroke-width="0"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="0"
           />
           <polyline
             points="738.87 737.96 684.51 700.5 682.23 700.83 627.87 738.29"
             fill="none"
             stroke="#fff"
-            stroke-linecap="round"
-            stroke-miterlimit="10"
-            stroke-width="4"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="4"
           />
         </g>
       </svg>
