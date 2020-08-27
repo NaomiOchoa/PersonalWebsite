@@ -1,0 +1,72 @@
+import React from "react"
+
+export default function Refrigerator() {
+  return (
+    <g id="Refrigerator">
+      <g>
+        <rect
+          x="961.76"
+          y="715.37"
+          width="25.45"
+          height="6.79"
+          fill="#000102"
+        />
+        <rect
+          x="1234.94"
+          y="715.37"
+          width="25.45"
+          height="6.79"
+          fill="#000102"
+        />
+        <g>
+          <g>
+            <path
+              d="M977,7.81h269.11a30,30,0,0,1,30,30V705.7a9.67,9.67,0,0,1-9.67,9.67H956.63A9.67,9.67,0,0,1,947,705.7V37.81a30,30,0,0,1,30-30Z"
+              fill="#e7f6f9"
+              stroke="#000"
+              strokeMiterlimit="10"
+              strokeWidth="0.5"
+            />
+            <path
+              d="M1280.74,43h6.33a30,30,0,0,1,30,30V740.89a9.66,9.66,0,0,1-9.66,9.67H997.63a9.66,9.66,0,0,1-9.66-9.67v-7.68Z"
+              transform="translate(-41 -35.19)"
+              fill="#d9e8ec"
+            />
+          </g>
+          <rect
+            x="961.76"
+            y="370.92"
+            width="103.5"
+            height="18.66"
+            rx="0.76"
+            fill="#867a88"
+            stroke="#000"
+            strokeMiterlimit="10"
+            strokeWidth="0.5"
+          />
+          <rect
+            x="961.76"
+            y="448.98"
+            width="103.5"
+            height="18.66"
+            rx="0.76"
+            fill="#867a88"
+            stroke="#000"
+            strokeMiterlimit="10"
+            strokeWidth="0.5"
+          />
+          <rect
+            x="947.37"
+            y="416.74"
+            width="329.11"
+            height="5.09"
+            fill="#000001"
+            stroke="#000"
+            strokeMiterlimit="10"
+            strokeWidth="0.5"
+          />
+        </g>
+      </g>
+    </g>
+  )
+}

@@ -1,0 +1,82 @@
+import React from "react"
+
+export default function Sink() {
+  return (
+    <g id="Sink">
+      <g>
+        <path
+          d="M345.19,381H586.84a0,0,0,0,1,0,0v41a5.79,5.79,0,0,1-5.79,5.79H351a5.79,5.79,0,0,1-5.79-5.79V381A0,0,0,0,1,345.19,381Z"
+          fill="#d9e8ec"
+          stroke="#000"
+          strokeMiterlimit="10"
+          strokeWidth="0.5"
+        />
+        <rect
+          x="344.03"
+          y="375.81"
+          width="243.97"
+          height="10.24"
+          rx="1.32"
+          fill="#e7f6f9"
+          stroke="#000"
+          strokeMiterlimit="10"
+          strokeWidth="0.5"
+        />
+      </g>
+      <g>
+        <path
+          d="M504,320s-.57-6.46,8-7h31.73v0s6.47-.44,6.94,7l6,.05c-.88-13.93-12.89-13.1-12.89-13.1l0,0H512c-16.07,1-15,13-15,13v57h7V320"
+          transform="translate(-41 -35.19)"
+          fill="#d9e8ec"
+          stroke="#000"
+          strokeMiterlimit="10"
+          strokeWidth="0.5"
+        />
+        <rect
+          x="447"
+          y="348.81"
+          width="38"
+          height="17"
+          rx="1.1"
+          fill="#d9e8ec"
+          stroke="#000"
+          strokeMiterlimit="10"
+          strokeWidth="0.5"
+        />
+        <rect
+          x="454"
+          y="341.81"
+          width="12"
+          height="9"
+          rx="1.1"
+          fill="#867a88"
+          stroke="#000"
+          strokeMiterlimit="10"
+          strokeWidth="0.5"
+        />
+        <rect
+          x="477"
+          y="330.81"
+          width="6"
+          height="20"
+          rx="0.68"
+          fill="#e7f6f9"
+          stroke="#000"
+          strokeMiterlimit="10"
+          strokeWidth="0.5"
+        />
+        <rect
+          x="451"
+          y="362.81"
+          width="19"
+          height="6.87"
+          rx="1.1"
+          fill="#867a88"
+          stroke="#000"
+          strokeMiterlimit="10"
+          strokeWidth="0.5"
+        />
+      </g>
+    </g>
+  )
+}
