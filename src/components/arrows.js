@@ -27,16 +27,10 @@ export default function Arrows() {
         <text
           transform="translate(767.03 133.84)"
           fontSize="18"
-          fontFamily="Nunito-Regular, Nunito"
+          fontFamily="Nunito-Regular, Nunito, sans-serif"
           letterSpacing="0.04em"
         >
-          conta
-          <tspan x="48.55" y="0" letterSpacing="0.05em">
-            c
-          </tspan>
-          <tspan x="58" y="0">
-            t
-          </tspan>
+          contact
         </text>
       </g>
       <g>
@@ -62,7 +56,7 @@ export default function Arrows() {
       <text
         transform="translate(951.44 66.61)"
         fontSize="18"
-        fontFamily="Nunito-Regular, Nunito"
+        fontFamily="Nunito-Regular, Nunito, sans-serif"
         letterSpacing="0.04em"
       >
         about me
@@ -90,22 +84,10 @@ export default function Arrows() {
       <text
         transform="translate(1134.94 223.46)"
         fontSize="18"
-        fontFamily="Nunito-Regular, Nunito"
+        fontFamily="Nunito-Regular, Nunito, sans-serif"
         letterSpacing="0.05em"
       >
-        p
-        <tspan x="11.29" y="0" letterSpacing="0.03em">
-          r
-        </tspan>
-        <tspan x="18.27" y="0" letterSpacing="0.04em">
-          oje
-        </tspan>
-        <tspan x="44.35" y="0" letterSpacing="0.05em">
-          c
-        </tspan>
-        <tspan x="53.8" y="0">
-          ts
-        </tspan>
+        projects
       </text>
     </g>
   )

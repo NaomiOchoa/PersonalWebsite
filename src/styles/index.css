@@ -5,7 +5,7 @@
 
 body {
   margin: 0px;
-  font-family: nunito, sans-serif;
+  font-family: Nunito, sans-serif;
 }
 
 .container {
@@ -60,7 +60,7 @@ body {
   text-align: center;
   font-weight: 400;
   border-radius: 20px;
-  font-family: nunito, sans-serif;
+  font-family: Nunito, sans-serif;
   background-color: #ffddd2;
   border: #e29578 2px solid;
 }
@@ -94,7 +94,7 @@ body {
   min-height: 70%;
   text-align: center;
   border-radius: 20px;
-  font-family: nunito, sans-serif;
+  font-family: Nunito, sans-serif;
   background-color: #edf6f9;
   border: #006d77 4px solid;
   padding: 5px;
@@ -107,7 +107,7 @@ body {
 .project-button {
   border-radius: 5px;
   width: 5em;
-  font-family: nunito, sans-serif;
+  font-family: Nunito, sans-serif;
   font-size: 20px;
   color: white;
   background-color: #006d77;

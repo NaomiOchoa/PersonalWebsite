@@ -4,9 +4,6 @@ import scrollTo from "gatsby-plugin-smoothscroll"
 
 export default function Cards(props) {
   useEffect(() => {
-    gsap.set("#Scribby", {
-      transformOrigin: "50% 50%",
-    })
     gsap.set("#Photo", {
       transformOrigin: "30% 50%",
     })
@@ -130,7 +127,7 @@ export default function Cards(props) {
         <text
           transform="matrix(1, 0.08, -0.08, 1, 1106.15, 120.93)"
           fontSize="15"
-          fontFamily="Megrim"
+          fontFamily="Megrim, sans-serif"
         >
           Polish’d
         </text>
