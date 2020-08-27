@@ -190,6 +190,13 @@ export default function Header(props) {
         viewBox="0 0 1366 768"
       >
         <g className="name-logo clickable" onClick={() => scrollTo("#top")}>
+          <rect
+            x="111.21"
+            y="162.11"
+            fill="#006d77"
+            width="1143.57"
+            height="300.79"
+          />
           <path
             ref={N}
             id="N"
@@ -415,6 +422,7 @@ export default function Header(props) {
           }}
           onClick={() => {
             shrinkHeader()
+            props.startAnimation()
           }}
           id="arrow"
           className="clickable"

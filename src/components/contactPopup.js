@@ -49,7 +49,6 @@ export default function ContactPopup(props) {
           duration: 1,
           scaleX: 0,
           scaleY: 0,
-          opacity: 0,
         },
         "exit"
       )

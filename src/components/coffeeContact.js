@@ -167,6 +167,9 @@ export default function Chemex(props) {
 
   const triggerContactForm = () => {
     const tl = gsap.timeline()
+    tl.to("#contact-arrow", {
+      opacity: 0,
+    })
     tl.to("#Coffee_Cup1", {
       duration: 1,
       y: 208,
