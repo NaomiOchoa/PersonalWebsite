@@ -12,6 +12,13 @@ html {
   height: 100%;
 }
 
+#main-image-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 body {
   margin: 0px;
   font-family: Nunito, sans-serif;
@@ -63,7 +70,7 @@ body {
 }
 
 #contact-form {
-  width: 50%;
+  width: 70%;
   position: absolute;
   font-style: normal;
   text-align: center;

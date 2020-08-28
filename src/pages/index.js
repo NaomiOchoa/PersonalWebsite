@@ -39,37 +39,39 @@ export default function Home() {
       <Helmet title="Naomi Ochoa" defer={false} />
       <div className="container" id="top">
         <Header startAnimation={startAnimation} />
-        <div id="main-image-section" className="main">
-          <Contact contact={contact} />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1276.48 722.16"
-            id="main-svg"
-          >
-            <defs>
-              <clipPath id="clip-path-2" transform="translate(-41 -35.19)">
-                <rect
-                  x="1042.51"
-                  y="171.01"
-                  width="38.49"
-                  height="45.52"
-                  transform="translate(-9.92 65.77) rotate(-3.53)"
-                  fill="none"
-                  stroke="#000"
-                  strokeMiterlimit="10"
-                  strokeWidth="0.5"
-                />
-              </clipPath>
-            </defs>
-            <Countertop />
-            <Cabinets />
-            <Refrigerator />
-            <Backsplash />
-            <Sink />
-            <Chemex setContact={setContact} />
-            <Card />
-            <Arrows />
-          </svg>
+        <div className="main">
+          <div id="main-image-section">
+            <Contact contact={contact} />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1276.48 722.16"
+              id="main-svg"
+            >
+              <defs>
+                <clipPath id="clip-path-2" transform="translate(-41 -35.19)">
+                  <rect
+                    x="1042.51"
+                    y="171.01"
+                    width="38.49"
+                    height="45.52"
+                    transform="translate(-9.92 65.77) rotate(-3.53)"
+                    fill="none"
+                    stroke="#000"
+                    strokeMiterlimit="10"
+                    strokeWidth="0.5"
+                  />
+                </clipPath>
+              </defs>
+              <Countertop />
+              <Cabinets />
+              <Refrigerator />
+              <Backsplash />
+              <Sink />
+              <Chemex setContact={setContact} />
+              <Card />
+              <Arrows />
+            </svg>
+          </div>
           <About />
           <Projects />
         </div>
