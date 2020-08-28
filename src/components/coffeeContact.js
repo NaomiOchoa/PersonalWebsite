@@ -231,6 +231,17 @@ export default function Chemex(props) {
     return tl
   }
 
+  const triggerContactForm2 = () => {
+    const tl = gsap.timeline()
+    tl.to("#contact-form", {
+      duration: 2,
+      scaleX: 1,
+      scaleY: 1,
+      opacity: 100,
+    })
+    return tl
+  }
+
   useEffect(() => {
     gsap.set("#Chemex", {
       transformOrigin: "50% 50%",
@@ -377,6 +388,9 @@ export default function Chemex(props) {
             if (!played) {
               setPlayed(true)
               triggerContactForm()
+              setContact(true)
+            } else {
+              triggerContactForm2()
               setContact(true)
             }
           }}

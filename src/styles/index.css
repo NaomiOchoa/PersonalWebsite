@@ -135,6 +135,21 @@ body {
   justify-content: center;
 }
 
+.message-area {
+  width: 70%;
+  min-height: 3em;
+}
+
+button.close {
+  float: right;
+  margin: 1em 1em 0em 0em;
+}
+
+.modal-header-primary {
+  margin-top: 1.5em;
+  margin-bottom: 0em;
+}
+
 @media only screen and (max-width: 899px) {
   #projects {
     display: flex;
