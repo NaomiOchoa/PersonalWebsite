@@ -9,18 +9,32 @@ export default function AboutPopup(props) {
       <div className="text-content">
         <h1>About Me</h1>
         <p>
-          Hi there! Formerly an innovation researcher at Nielsen, I’m now
-          enthusiastically pursuing a career in software development and excited
-          to join an engineering team that is passionate about creating a
-          positive experience for end users.
+          I'm a software engineer with a background in innovation research. In
+          other words, I used to help clients decide which new products should
+          be brought to shelves. As a result, I look for data to make decisions,
+          and I'm always asking "why" to understand user behavior and
+          motivations.
           <br />
           <br />
-          My previous work gave me the analytical skills and project management
-          experience to guide my Fortune 500 client through research that would
-          help decide which new products should be brought to shelves. However,
-          as I began to learn Python to develop tools for my team, I found that
-          I was more passionate about being able to bring an idea to life
-          through code.{" "}
+          <span className="inline-subheader">
+            I'm most experienced with:{" "}
+          </span>{" "}
+          JavaScript, React, Redux, CSS, HTML, Node.js, Express.js, ...and I'm
+          always looking to keep expanding my skills
+          <br />
+          <br />
+          <span className="inline-subheader">
+            I'm currently diving deep into:
+          </span>{" "}
+          Web Accessibility
+          <br />
+          <br />
+          <span className="inline-subheader">
+            Give me all your recommendations for:
+          </span>{" "}
+          Tech podcasts! I'm an avid podcast listener, with favorites like 99%
+          Invisible and Reply All. I'm always looking for something new to add
+          to my rotation.
         </p>
       </div>
     </div>
