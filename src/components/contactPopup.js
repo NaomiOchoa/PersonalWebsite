@@ -18,8 +18,6 @@ export default function ContactPopup(props) {
       scaleY: 0,
       opacity: 0,
       transformOrigin: "50%, 50%",
-      x: "50%",
-      y: "50%",
     })
     gsap.set("#envelope-image", {
       transformOrigin: "50%, 50%",

@@ -12,6 +12,13 @@ html {
   height: 100%;
 }
 
+#main-image-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 body {
   margin: 0px;
   font-family: Nunito, sans-serif;
@@ -63,7 +70,7 @@ body {
 }
 
 #contact-form {
-  width: 50%;
+  width: 70%;
   position: absolute;
   font-style: normal;
   text-align: center;
@@ -155,6 +162,7 @@ button.close {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
   }
   .project-section-3 {
@@ -162,7 +170,7 @@ button.close {
   }
 
   #about-me {
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -191,7 +199,7 @@ button.close {
     height: 500px;
   }
   #about-me {
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
     display: flex;
     flex-direction: row;
@@ -206,4 +214,12 @@ button.close {
     width: 50%;
     text-align: left;
   }
+
+  .text-content > h1 {
+    margin-top: 0px;
+  }
+}
+
+.inline-subheader {
+  font-weight: bold;
 }

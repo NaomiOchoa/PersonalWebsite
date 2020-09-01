@@ -135,7 +135,7 @@ export default function Chemex(props) {
     return tl
   }
 
-  const hoverEffect = () => {
+  const cupFocusEnter = () => {
     gsap
       .timeline()
       .to("#Coffee_Cup1", {
@@ -146,10 +146,7 @@ export default function Chemex(props) {
         rotation: -25,
         ease: "sine.Out",
       })
-      .to("#Coffee_Cup1", {
-        rotation: 0,
-        ease: "sine.Out",
-      })
+
       .to("#Coffee_Cup1", {
         rotation: 25,
         ease: "sine.Out",
@@ -163,6 +160,16 @@ export default function Chemex(props) {
         ease: "sine.Out",
       })
       .duration(1)
+  }
+
+  const cupFocusLeave = () => {
+    gsap
+      .timeline()
+      .to("#Coffee_Cup1", {
+        rotation: 0,
+        ease: "sine.Out",
+      })
+      .duration(0.5)
   }
 
   const triggerContactForm = () => {
@@ -379,9 +386,25 @@ export default function Chemex(props) {
           id="Coffee_Cup1"
           className="interact clickable"
           data-name="Coffee Cup1"
-          onMouseOver={() => {
+          tabIndex="0"
+          onMouseEnter={() => {
             if (!played) {
-              hoverEffect()
+              cupFocusEnter()
+            }
+          }}
+          onMouseLeave={() => {
+            if (!played) {
+              cupFocusLeave()
+            }
+          }}
+          onFocus={() => {
+            if (!played) {
+              cupFocusEnter()
+            }
+          }}
+          onBlur={() => {
+            if (!played) {
+              cupFocusLeave()
             }
           }}
           onClick={() => {
@@ -390,6 +413,16 @@ export default function Chemex(props) {
               triggerContactForm()
               setContact(true)
             } else {
+              triggerContactForm2()
+              setContact(true)
+            }
+          }}
+          onKeyPress={e => {
+            if (!played && e.key === "Enter") {
+              setPlayed(true)
+              triggerContactForm()
+              setContact(true)
+            } else if (e.key === "Enter") {
               triggerContactForm2()
               setContact(true)
             }
