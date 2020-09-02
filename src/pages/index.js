@@ -17,6 +17,8 @@ import { Helmet } from "react-helmet"
 
 export default function Home() {
   const [contact, setContact] = React.useState(false)
+  const [headerPosition, setHeaderPosition] = React.useState("full")
+
   const introTL = React.useRef(gsap.timeline())
 
   useEffect(() => {
@@ -38,7 +40,11 @@ export default function Home() {
     <React.Fragment>
       <Helmet title="Naomi Ochoa" defer={false} />
       <div className="container" id="top">
-        <Header startAnimation={startAnimation} />
+        <Header
+          startAnimation={startAnimation}
+          headerPosition={headerPosition}
+          setHeaderPosition={setHeaderPosition}
+        />
         <div className="main">
           <div id="main-image-section">
             <Contact contact={contact} />
@@ -72,8 +78,14 @@ export default function Home() {
               <Arrows />
             </svg>
           </div>
-          <About />
-          <Projects />
+          {headerPosition === "top" ? (
+            <React.Fragment>
+              <About />
+              <Projects />
+            </React.Fragment>
+          ) : (
+            ""
+          )}
         </div>
         <Footer />
       </div>

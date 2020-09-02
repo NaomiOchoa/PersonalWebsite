@@ -1,9 +1,10 @@
 import React, { useEffect } from "react"
 import { gsap } from "gsap"
 import scrollTo from "gatsby-plugin-smoothscroll"
+import clsx from "clsx"
 
 export default function Header(props) {
-  // const [position, setPosition] = React.useState("full")
+  const { headerPosition, setHeaderPosition } = props
   const introTL = React.useRef(gsap.timeline())
   const N = React.useRef()
   const A = React.useRef()
@@ -182,14 +183,17 @@ export default function Header(props) {
   }
 
   return (
-    <div className="header">
+    <div className={clsx("header", headerPosition === "top" && "top-header")}>
       <svg
         id="Header-Img"
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1366 768"
       >
-        <g className="name-logo clickable" onClick={() => scrollTo("#top")}>
+        <g
+          className={clsx("name-logo", headerPosition === "top" && "clickable")}
+          onClick={() => scrollTo("#top")}
+        >
           <rect
             x="111.21"
             y="162.11"
@@ -420,12 +424,27 @@ export default function Header(props) {
           onMouseLeave={() => {
             arrowUnhover()
           }}
+          onFocus={() => {
+            arrowHover()
+          }}
+          onBlur={() => {
+            arrowUnhover()
+          }}
           onClick={() => {
             shrinkHeader()
             props.startAnimation()
+            setHeaderPosition("top")
+          }}
+          onKeyPress={e => {
+            if (e.key === "Enter") {
+              shrinkHeader()
+              props.startAnimation()
+              setHeaderPosition("top")
+            }
           }}
           id="arrow"
-          className="clickable"
+          className="clickable hover-arrow"
+          tabIndex="0"
         >
           <rect
             x="594.37"
