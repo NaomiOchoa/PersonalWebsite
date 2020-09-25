@@ -20,14 +20,19 @@ export default function Home() {
   const [contact, setContact] = React.useState(false)
   const [headerPosition, setHeaderPosition] = React.useState("full")
   const { height, width } = useWindowDimensions()
-  const [viewboxWidth, setViewboxWidth] = React.useState()
-  const [viewboxXPos, setViewboxXPos] = React.useState()
+  const [viewboxWidth, setViewboxWidth] = React.useState(1276.48)
+  const [viewboxXPos, setViewboxXPos] = React.useState(0)
 
   const introTL = React.useRef(gsap.timeline())
 
   useEffect(() => {
-    //set viewbox breakpoints
-    console.log("width", width)
+    if (width <= 899) {
+      setViewboxWidth(638.24)
+      setViewboxXPos(638.24)
+    } else {
+      setViewboxWidth(1276.48)
+      setViewboxXPos(0)
+    }
   }, [width])
 
   useEffect(() => {
@@ -59,8 +64,9 @@ export default function Home() {
             <Contact contact={contact} />
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 1276.48 722.16"
+              viewBox={`${viewboxXPos} 0 ${viewboxWidth} 722.16`}
               id="main-svg"
+              // height={height - 65 + "px"}
             >
               <defs>
                 <clipPath id="clip-path-2" transform="translate(-41 -35.19)">
