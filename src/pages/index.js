@@ -2,10 +2,10 @@ import React, { useEffect } from "react"
 import Chemex from "../components/coffeeContact"
 import Contact from "../components/contactPopup"
 import Card from "../components/fridgeCards"
-import About from "../components/aboutPopup"
+import About from "./about"
 import { gsap } from "gsap"
 import Header from "../components/header"
-import Projects from "../components/projectsSection"
+import Projects from "./projects"
 import Footer from "../components/footer"
 import Countertop from "../components/countertop"
 import Cabinets from "../components/cabinets"
@@ -14,12 +14,21 @@ import Backsplash from "../components/backsplash"
 import Sink from "../components/sink"
 import Arrows from "../components/arrows"
 import { Helmet } from "react-helmet"
+import useWindowDimensions from "../hooks/useWindowDimensions"
 
 export default function Home() {
   const [contact, setContact] = React.useState(false)
   const [headerPosition, setHeaderPosition] = React.useState("full")
+  const { height, width } = useWindowDimensions()
+  const [viewboxWidth, setViewboxWidth] = React.useState()
+  const [viewboxXPos, setViewboxXPos] = React.useState()
 
   const introTL = React.useRef(gsap.timeline())
+
+  useEffect(() => {
+    //set viewbox breakpoints
+    console.log("width", width)
+  }, [width])
 
   useEffect(() => {
     introTL.current.from(".interact", {
@@ -27,7 +36,7 @@ export default function Home() {
       y: -500,
       ease: "power1.inOut",
       stagger: 0.1,
-      delay: 1,
+      delay: 3,
     })
     introTL.current.pause()
   }, [])
