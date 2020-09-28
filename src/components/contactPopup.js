@@ -8,9 +8,41 @@ function encode(data) {
 }
 
 export default function ContactPopup(props) {
-  const { contact } = props
+  const { contact, focused, setContact } = props
   const introTL = React.useRef(gsap.timeline())
   const [state, setState] = React.useState({})
+  const firstEl = React.useRef()
+  const lastEl = React.useRef()
+  const sendButton = React.useRef()
+
+  const previouslyFocused = focused
+
+  const trapTabKey = e => {
+    if (e.keyCode === 9) {
+      // Shift Tab
+      if (e.shiftKey) {
+        if (document.activeElement === firstEl.current) {
+          e.preventDefault()
+          lastEl.current.focus()
+        } else if (document.activeElement === lastEl.current) {
+          e.preventDefault()
+          sendButton.current.focus()
+        }
+        // Tab
+      } else {
+        if (document.activeElement === lastEl.current) {
+          e.preventDefault()
+          firstEl.current.focus()
+        }
+        if (document.activeElement === sendButton.current) {
+          e.preventDefault()
+          lastEl.current.focus()
+        }
+      }
+    } else if (e.keyCode === 27) {
+      closeModal()
+    }
+  }
 
   useEffect(() => {
     gsap.set("#contact-form", {
@@ -36,7 +68,6 @@ export default function ContactPopup(props) {
           scaleX: 1,
           scaleY: 1,
           display: "block",
-          delay: 8,
         },
         "launch"
       )
@@ -46,11 +77,12 @@ export default function ContactPopup(props) {
           duration: 2,
           display: "block",
           opacity: 0.5,
-          delay: 8,
         },
         "launch"
       )
+      introTL.current.add(() => firstEl.current.focus())
     }
+    console.log("contact", contact)
   }, [contact])
 
   const sendMessage = () => {
@@ -86,6 +118,8 @@ export default function ContactPopup(props) {
         },
         "exit"
       )
+      .add(() => previouslyFocused.focus())
+      .add(() => setContact(false))
   }
 
   const closeModal = () => {
@@ -111,6 +145,8 @@ export default function ContactPopup(props) {
         },
         "close"
       )
+      .add(() => previouslyFocused.focus())
+      .add(() => setContact(false))
   }
 
   const handleChange = e => {
@@ -134,8 +170,14 @@ export default function ContactPopup(props) {
 
   return (
     <React.Fragment>
-      <div id="contact-form">
-        <button className="close" onClick={() => closeModal()}>
+      <div id="contact-form" onKeyDown={trapTabKey}>
+        <button
+          className="close"
+          onClick={() => {
+            closeModal()
+          }}
+          ref={lastEl}
+        >
           ✖
         </button>
         <h1 className="modal-header-primary">Want to grab (virtual) coffee?</h1>
@@ -158,7 +200,12 @@ export default function ContactPopup(props) {
             <label>
               Your name:
               <br />
-              <input type="text" name="name" onChange={handleChange} />
+              <input
+                type="text"
+                name="name"
+                onChange={handleChange}
+                ref={firstEl}
+              />
             </label>
           </p>
           <p>
@@ -180,7 +227,7 @@ export default function ContactPopup(props) {
             </label>
           </p>
           <p>
-            <button type="submit">
+            <button type="submit" ref={sendButton}>
               <svg
                 id="envelope"
                 className="clickable"
@@ -216,7 +263,7 @@ export default function ContactPopup(props) {
           </p>
         </form>
       </div>
-      <div className="modal-overlay" />
+      <div className="modal-overlay" onClick={closeModal} />
     </React.Fragment>
   )
 }

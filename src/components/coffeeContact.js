@@ -3,7 +3,7 @@ import { gsap } from "gsap"
 
 export default function Chemex(props) {
   const [played, setPlayed] = React.useState(false)
-  const { setContact } = props
+  const { setContact, setFocused } = props
 
   const pourCoffee1 = () => {
     const tl = gsap.timeline()
@@ -228,38 +228,8 @@ export default function Chemex(props) {
       },
       "putChemexBack"
     )
-    tl.to("#contact-form", {
-      duration: 2,
-      scaleX: 1,
-      scaleY: 1,
-      display: "block",
-    })
+    tl.add(() => setContact(true))
     tl.duration(10)
-    return tl
-  }
-
-  const triggerContactForm2 = () => {
-    const tl = gsap.timeline()
-    tl.addLabel("launch")
-    tl.to(
-      "#contact-form",
-      {
-        duration: 2,
-        scaleX: 1,
-        scaleY: 1,
-        display: "block",
-      },
-      "launch"
-    )
-    tl.to(
-      ".modal-overlay",
-      {
-        duration: 2,
-        display: "block",
-        opacity: 0.5,
-      },
-      "launch"
-    )
     return tl
   }
 
@@ -421,24 +391,24 @@ export default function Chemex(props) {
               cupFocusLeave()
             }
           }}
-          onClick={() => {
+          onClick={e => {
             if (!played) {
               setPlayed(true)
               triggerContactForm()
-              setContact(true)
+              setFocused(e.target)
             } else {
-              triggerContactForm2()
               setContact(true)
+              setFocused(e.target)
             }
           }}
           onKeyPress={e => {
             if (!played && e.key === "Enter") {
               setPlayed(true)
               triggerContactForm()
-              setContact(true)
+              setFocused(e.target)
             } else if (e.key === "Enter") {
-              triggerContactForm2()
               setContact(true)
+              setFocused(e.target)
             }
           }}
         >

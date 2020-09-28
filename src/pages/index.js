@@ -22,6 +22,7 @@ export default function Home() {
   const { height, width } = useWindowDimensions()
   const [viewboxWidth, setViewboxWidth] = React.useState(1276.48)
   const [viewboxXPos, setViewboxXPos] = React.useState(0)
+  const [focused, setFocused] = React.useState()
 
   const introTL = React.useRef(gsap.timeline())
 
@@ -61,7 +62,12 @@ export default function Home() {
         />
         <div className="main">
           <div id="main-image-section">
-            <Contact contact={contact} />
+            <Contact
+              contact={contact}
+              setContact={setContact}
+              focused={focused}
+              setFocused={setFocused}
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox={`${viewboxXPos} 0 ${viewboxWidth} 722.16`}
@@ -87,7 +93,7 @@ export default function Home() {
               <Refrigerator />
               <Backsplash />
               <Sink />
-              <Chemex setContact={setContact} />
+              <Chemex setContact={setContact} setFocused={setFocused} />
               <Card />
               <Arrows />
             </svg>
