@@ -41,7 +41,7 @@ export default function Home() {
       y: -500,
       ease: "power1.inOut",
       stagger: 0.1,
-      delay: 3,
+      delay: 1,
     })
     introTL.current.pause()
   }, [])
@@ -66,7 +66,6 @@ export default function Home() {
               xmlns="http://www.w3.org/2000/svg"
               viewBox={`${viewboxXPos} 0 ${viewboxWidth} 722.16`}
               id="main-svg"
-              // height={height - 65 + "px"}
             >
               <defs>
                 <clipPath id="clip-path-2" transform="translate(-41 -35.19)">

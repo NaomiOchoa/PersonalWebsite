@@ -5,6 +5,11 @@ import clsx from "clsx"
 
 export default function Header(props) {
   const { headerPosition, setHeaderPosition, startAnimation } = props
+
+  const loadTheRest = () => {
+    setHeaderPosition("top")
+  }
+
   const introTL = React.useRef(gsap.timeline())
   const N = React.useRef()
   const A = React.useRef()
@@ -110,8 +115,8 @@ export default function Header(props) {
     // )
     introTL.current.add(draw())
     introTL.current.add(shrinkHeader())
+    introTL.current.then(loadTheRest)
     startAnimation()
-    setHeaderPosition("top")
   }, [startAnimation, setHeaderPosition])
 
   const arrowHover = () => {

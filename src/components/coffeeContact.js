@@ -232,7 +232,7 @@ export default function Chemex(props) {
       duration: 2,
       scaleX: 1,
       scaleY: 1,
-      opacity: 100,
+      display: "block",
     })
     tl.duration(10)
     return tl
@@ -240,12 +240,26 @@ export default function Chemex(props) {
 
   const triggerContactForm2 = () => {
     const tl = gsap.timeline()
-    tl.to("#contact-form", {
-      duration: 2,
-      scaleX: 1,
-      scaleY: 1,
-      opacity: 100,
-    })
+    tl.addLabel("launch")
+    tl.to(
+      "#contact-form",
+      {
+        duration: 2,
+        scaleX: 1,
+        scaleY: 1,
+        display: "block",
+      },
+      "launch"
+    )
+    tl.to(
+      ".modal-overlay",
+      {
+        duration: 2,
+        display: "block",
+        opacity: 0.5,
+      },
+      "launch"
+    )
     return tl
   }
 

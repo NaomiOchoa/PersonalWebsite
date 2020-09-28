@@ -10,7 +10,6 @@ html {
 #main-svg {
   width: 100%;
   height: 100%;
-  /* height: 100vh; */
 }
 
 #main-image-section {
@@ -38,11 +37,8 @@ body {
 }
 
 .header {
-  /* grid-area: header; */
   grid-column: 1/4;
-  grid-row: 1/3;
-  /* position: fixed;
-  top: 0; */
+  grid-row: 1/4;
   z-index: 100;
 }
 
@@ -93,6 +89,7 @@ body {
   font-family: Nunito, sans-serif;
   background-color: #ffddd2;
   border: #e29578 2px solid;
+  z-index: 3;
 }
 
 .content-section {
@@ -166,6 +163,19 @@ button.close {
   margin-bottom: 0em;
 }
 
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: #000;
+  position: fixed;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+
 @media only screen and (max-width: 899px) {
   #projects {
     display: flex;
@@ -179,13 +189,13 @@ button.close {
   }
 
   #about-me {
-    font-size: 18px;
     text-align: center;
     display: flex;
     flex-direction: column;
   }
   .img-content {
-    width: 50%;
+    width: 60%;
+    margin: 1em 1em 0em 1em;
   }
 
   .text-content {
