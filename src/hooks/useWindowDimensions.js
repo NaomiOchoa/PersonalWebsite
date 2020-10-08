@@ -3,15 +3,16 @@ import { useState, useEffect } from "react"
 export default function useWindowDimensions() {
   const [windowDimensions, setWindowDimensions] = useState()
 
-  function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window
-    return {
-      width,
-      height,
-    }
-  }
-
   useEffect(() => {
+    function getWindowDimensions() {
+      if (typeof window !== "undefined") {
+        const { innerWidth: width, innerHeight: height } = window
+        return {
+          width,
+          height,
+        }
+      }
+    }
     function handleResize() {
       setWindowDimensions(getWindowDimensions())
     }
