@@ -2,10 +2,10 @@ import React, { useEffect } from "react"
 import Chemex from "../components/coffeeContact"
 import Contact from "../components/contactPopup"
 import Card from "../components/fridgeCards"
-import About from "../components/aboutPopup"
+import About from "./about"
 import { gsap } from "gsap"
 import Header from "../components/header"
-import Projects from "../components/projectsSection"
+import Projects from "./projects"
 import Footer from "../components/footer"
 import Countertop from "../components/countertop"
 import Cabinets from "../components/cabinets"
@@ -14,12 +14,27 @@ import Backsplash from "../components/backsplash"
 import Sink from "../components/sink"
 import Arrows from "../components/arrows"
 import { Helmet } from "react-helmet"
+import useWindowDimensions from "../hooks/useWindowDimensions"
 
 export default function Home() {
   const [contact, setContact] = React.useState(false)
   const [headerPosition, setHeaderPosition] = React.useState("full")
+  const { height, width } = useWindowDimensions()
+  const [viewboxWidth, setViewboxWidth] = React.useState(1276.48)
+  const [viewboxXPos, setViewboxXPos] = React.useState(0)
+  const [focused, setFocused] = React.useState()
 
   const introTL = React.useRef(gsap.timeline())
+
+  useEffect(() => {
+    if (width <= 899) {
+      setViewboxWidth(638.24)
+      setViewboxXPos(638.24)
+    } else {
+      setViewboxWidth(1276.48)
+      setViewboxXPos(0)
+    }
+  }, [width])
 
   useEffect(() => {
     introTL.current.from(".interact", {
@@ -47,10 +62,15 @@ export default function Home() {
         />
         <div className="main">
           <div id="main-image-section">
-            <Contact contact={contact} />
+            <Contact
+              contact={contact}
+              setContact={setContact}
+              focused={focused}
+              setFocused={setFocused}
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 1276.48 722.16"
+              viewBox={`${viewboxXPos} 0 ${viewboxWidth} 722.16`}
               id="main-svg"
             >
               <defs>
@@ -73,7 +93,7 @@ export default function Home() {
               <Refrigerator />
               <Backsplash />
               <Sink />
-              <Chemex setContact={setContact} />
+              <Chemex setContact={setContact} setFocused={setFocused} />
               <Card />
               <Arrows />
             </svg>

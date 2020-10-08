@@ -4,7 +4,12 @@ import scrollTo from "gatsby-plugin-smoothscroll"
 import clsx from "clsx"
 
 export default function Header(props) {
-  const { headerPosition, setHeaderPosition } = props
+  const { headerPosition, setHeaderPosition, startAnimation } = props
+
+  const loadTheRest = () => {
+    setHeaderPosition("top")
+  }
+
   const introTL = React.useRef(gsap.timeline())
   const N = React.useRef()
   const A = React.useRef()
@@ -37,79 +42,11 @@ export default function Header(props) {
         strokeDashoffset: length,
       })
     })
-    introTL.current.addLabel("draw")
-    introTL.current.to(
-      ".N",
-      {
-        strokeDashoffset: 0,
-      },
-      "draw"
-    )
-    introTL.current.to(
-      ".A",
-      {
-        strokeDashoffset: 0,
-      },
-      "draw"
-    )
-    introTL.current.to(
-      ".O",
-      {
-        strokeDashoffset: 0,
-      },
-      "draw"
-    )
-    introTL.current.to(
-      ".M",
-      {
-        strokeDashoffset: 0,
-      },
-      "draw"
-    )
-    introTL.current.to(
-      ".I",
-      {
-        strokeDashoffset: 0,
-      },
-      "draw"
-    )
-    introTL.current.to(
-      ".O2",
-      {
-        strokeDashoffset: 0,
-      },
-      "draw"
-    )
-    introTL.current.to(
-      ".C",
-      {
-        strokeDashoffset: 0,
-      },
-      "draw"
-    )
-    introTL.current.to(
-      ".H",
-      {
-        strokeDashoffset: 0,
-      },
-      "draw"
-    )
-    introTL.current.to(
-      ".O3",
-      {
-        strokeDashoffset: 0,
-      },
-      "draw"
-    )
-    introTL.current.to(
-      ".A2",
-      {
-        strokeDashoffset: 0,
-      },
-      "draw"
-    )
-    introTL.current.duration(3)
-  }, [])
+    introTL.current.add(draw())
+    introTL.current.add(shrinkHeader())
+    introTL.current.then(loadTheRest)
+    startAnimation()
+  }, [startAnimation, setHeaderPosition])
 
   const arrowHover = () => {
     gsap.timeline().to("#arrow", {
@@ -123,63 +60,142 @@ export default function Header(props) {
     })
   }
 
-  const shrinkHeader = () => {
-    gsap
+  const draw = () => {
+    return gsap
       .timeline()
-      .addLabel("disappear")
-      .to(
-        ".title-info",
-        {
-          opacity: 0,
-        },
-        "disappear"
-      )
-      .to(
-        ".deco",
-        {
-          opacity: 0,
-        },
-        "disappear"
-      )
-      .to(
-        "#arrow",
-        {
-          opacity: 0,
-        },
-        "disappear"
-      )
-      .addLabel("shrink")
-      .to(
-        ".header",
-        {
-          height: "65px",
-        },
-        "shrink"
-      )
-      .to(
-        "#Header-Img",
-        {
-          height: "150px",
-        },
-        "shrink"
-      )
-      .to(
-        ".name-logo",
-        {
-          y: -150,
-          x: -100,
-        },
-
-        "shrink"
-      )
+      .addLabel("draw")
       .to(
         ".N",
         {
-          strokeWidth: 0,
-          fill: "white",
+          strokeDashoffset: 0,
         },
-        "shrink"
+        "draw"
       )
+      .to(
+        ".A",
+        {
+          strokeDashoffset: 0,
+        },
+        "draw"
+      )
+      .to(
+        ".O",
+        {
+          strokeDashoffset: 0,
+        },
+        "draw"
+      )
+      .to(
+        ".M",
+        {
+          strokeDashoffset: 0,
+        },
+        "draw"
+      )
+      .to(
+        ".I",
+        {
+          strokeDashoffset: 0,
+        },
+        "draw"
+      )
+      .to(
+        ".O2",
+        {
+          strokeDashoffset: 0,
+        },
+        "draw"
+      )
+      .to(
+        ".C",
+        {
+          strokeDashoffset: 0,
+        },
+        "draw"
+      )
+      .to(
+        ".H",
+        {
+          strokeDashoffset: 0,
+        },
+        "draw"
+      )
+      .to(
+        ".O3",
+        {
+          strokeDashoffset: 0,
+        },
+        "draw"
+      )
+      .to(
+        ".A2",
+        {
+          strokeDashoffset: 0,
+        },
+        "draw"
+      )
+      .duration(3)
+  }
+
+  const shrinkHeader = () => {
+    return (
+      gsap
+        .timeline()
+        .addLabel("disappear")
+        .to(
+          ".title-info",
+          {
+            opacity: 0,
+          },
+          "disappear"
+        )
+        .to(
+          ".deco",
+          {
+            opacity: 0,
+          },
+          "disappear"
+        )
+        // .to(
+        //   "#arrow",
+        //   {
+        //     opacity: 0,
+        //   },
+        //   "disappear"
+        // )
+        .addLabel("shrink")
+        .to(
+          ".header",
+          {
+            height: "65px",
+          },
+          "shrink"
+        )
+        .to(
+          "#Header-Img",
+          {
+            height: "150px",
+          },
+          "shrink"
+        )
+        .to(
+          ".name-logo",
+          {
+            y: -150,
+            x: -100,
+          },
+
+          "shrink"
+        )
+        .to(
+          ".N",
+          {
+            strokeWidth: 0,
+            fill: "white",
+          },
+          "shrink"
+        )
+    )
   }
 
   return (
@@ -417,7 +433,7 @@ export default function Header(props) {
           strokeWidth="4"
         />
 
-        <g
+        {/* <g
           onMouseEnter={() => {
             arrowHover()
           }}
@@ -465,7 +481,7 @@ export default function Header(props) {
             strokeMiterlimit="10"
             strokeWidth="4"
           />
-        </g>
+        </g> */}
       </svg>
     </div>
   )
