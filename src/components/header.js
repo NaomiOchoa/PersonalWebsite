@@ -4,9 +4,10 @@ import scrollTo from "gatsby-plugin-smoothscroll"
 import clsx from "clsx"
 
 export default function Header(props) {
-  const { headerPosition, setHeaderPosition, startAnimation } = props
+  const { headerPosition, setHeaderPosition } = props
 
   const loadTheRest = () => {
+    console.log("load the rest")
     setHeaderPosition("top")
   }
 
@@ -44,9 +45,9 @@ export default function Header(props) {
     })
     introTL.current.add(draw())
     introTL.current.add(shrinkHeader())
-    introTL.current.then(loadTheRest)
-    startAnimation()
-  }, [startAnimation, setHeaderPosition])
+    introTL.current.add(() => setHeaderPosition("top"))
+    introTL.current.add(dropDown())
+  }, [ setHeaderPosition])
 
   const arrowHover = () => {
     gsap.timeline().to("#arrow", {
@@ -134,7 +135,7 @@ export default function Header(props) {
         },
         "draw"
       )
-      .duration(3)
+      .duration(2)
   }
 
   const shrinkHeader = () => {
@@ -195,6 +196,18 @@ export default function Header(props) {
           },
           "shrink"
         )
+    )
+  }
+
+  const dropDown = () => {
+    return (
+      gsap.timeline()
+      .from(".interact", {
+        duration: 1.5,
+        y: -500,
+        ease: "power1.inOut",
+        stagger: 0.1,
+      })
     )
   }
 

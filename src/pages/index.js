@@ -36,27 +36,28 @@ export default function Home() {
     }
   }, [width])
 
-  useEffect(() => {
-    introTL.current.from(".interact", {
-      duration: 1.5,
-      y: -500,
-      ease: "power1.inOut",
-      stagger: 0.1,
-      delay: 1,
-    })
-    introTL.current.pause()
-  }, [])
+  // useEffect(() => {
+  //   introTL.current.from(".interact", {
+  //     duration: 1.5,
+  //     y: -500,
+  //     ease: "power1.inOut",
+  //     stagger: 0.1,
+  //     delay: 1,
+  //   })
+  //   introTL.current.pause()
+  // }, [])
 
-  const startAnimation = () => {
-    introTL.current.play()
-  }
+  // const startAnimation = () => {
+  //   console.log("calling start animation")
+  //   introTL.current.play()
+  // }
 
   return (
     <React.Fragment>
       <Helmet title="Naomi Ochoa" defer={false} />
       <div className="container" id="top">
         <Header
-          startAnimation={startAnimation}
+          // startAnimation={startAnimation}
           headerPosition={headerPosition}
           setHeaderPosition={setHeaderPosition}
         />
