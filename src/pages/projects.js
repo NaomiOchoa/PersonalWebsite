@@ -83,7 +83,10 @@ export default function ProjectSection(props) {
               Github
             </a>
           </div>
-          <h4>Tech Stack: Firebase, React, D3.js, Semantic-UI</h4>
+          <h4>
+          Tech Stack: PostgreSQL, Sequelize, Express.js, Node.js, React,
+            Redux, Semantic-UI
+            </h4>
         </div>
       </div>
       <div className="project-section-3">
@@ -120,8 +123,44 @@ export default function ProjectSection(props) {
             </a>
           </div>
           <h4>
-            Tech Stack: PostgreSQL, Sequelize, Express.js, Node.js, React,
-            Redux, Semantic-UI
+          Tech Stack: Firebase, React, D3.js, Semantic-UI
+          </h4>
+        </div>
+      </div>
+      <div className="project-section-3">
+        <div className="img-content-3">
+          <img
+            width="80%"
+            height="auto"
+            src="wirecutter-mock-image.png"
+            alt="Wirecutter Mockup main page"
+          />
+        </div>
+        <div className="text-content-3">
+          <h1>Wirecutter Mockup</h1>
+          <p>
+          An interactive visualization of Wirecutter's comparison table data for: The Best Winter Boots
+          </p>
+          <div className="project-button-section">
+            <a
+              className="project-button"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://comparison-table-mockup.web.app/"
+            >
+              Try It
+            </a>
+            <a
+              className="project-button"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/NaomiOchoa/comparison-table-mockup"
+            >
+              Github
+            </a>
+          </div>
+          <h4>
+            Tech Stack: Firebase, React, Redux, D3.js, Semantic-UI
           </h4>
         </div>
       </div>

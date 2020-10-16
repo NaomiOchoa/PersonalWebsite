@@ -82,7 +82,6 @@ export default function ContactPopup(props) {
       )
       introTL.current.add(() => firstEl.current.focus())
     }
-    console.log("contact", contact)
   }, [contact])
 
   const sendMessage = () => {
